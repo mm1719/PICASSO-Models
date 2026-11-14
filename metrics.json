@@ -1,0 +1,249 @@
+{
+  "model_id": "picasso-r1-historical-baseline-v1",
+  "status": "historical saved results; not rerun for this release",
+  "split_type": "image-row target-stratified 80/10/10, seed 20260421; not source-held-out",
+  "checkpoint_source": "ema",
+  "epoch": 27,
+  "test": {
+    "balanced_accuracy": 0.7337987891475403,
+    "f1_score": {
+      "macro": 0.6831529935086444,
+      "weighted": 0.931466528735456
+    },
+    "num_classes": 23,
+    "num_samples": 407596,
+    "precision": {
+      "macro": 0.6655547036769507,
+      "weighted": 0.9328969616487764
+    },
+    "recall": {
+      "macro": 0.7337987891475403,
+      "weighted": 0.930622479121483
+    },
+    "topk_accuracy": {
+      "top1_accuracy": 0.930622479121483,
+      "top2_accuracy": 0.9842859105584942,
+      "top3_accuracy": 0.9910278805483862,
+      "top4_accuracy": 0.9936015073749497,
+      "top5_accuracy": 0.9945534303575109
+    }
+  },
+  "class_support": [
+    {
+      "class_index": "0",
+      "target_id": "9",
+      "target_display_name": "Sarcomastigophora",
+      "train_count": "828",
+      "val_count": "103",
+      "test_count": "105"
+    },
+    {
+      "class_index": "1",
+      "target_id": "11",
+      "target_display_name": "Ciliophora",
+      "train_count": "22134",
+      "val_count": "2766",
+      "test_count": "2768"
+    },
+    {
+      "class_index": "2",
+      "target_id": "51",
+      "target_display_name": "Mollusca",
+      "train_count": "1176",
+      "val_count": "147",
+      "test_count": "148"
+    },
+    {
+      "class_index": "3",
+      "target_id": "558",
+      "target_display_name": "Porifera",
+      "train_count": "231",
+      "val_count": "28",
+      "test_count": "30"
+    },
+    {
+      "class_index": "4",
+      "target_id": "799",
+      "target_display_name": "Nematoda",
+      "train_count": "88",
+      "val_count": "11",
+      "test_count": "12"
+    },
+    {
+      "class_index": "5",
+      "target_id": "801",
+      "target_display_name": "Chlorophyta",
+      "train_count": "15",
+      "val_count": "1",
+      "test_count": "3"
+    },
+    {
+      "class_index": "6",
+      "target_id": "882",
+      "target_display_name": "Annelida",
+      "train_count": "273",
+      "val_count": "34",
+      "test_count": "35"
+    },
+    {
+      "class_index": "7",
+      "target_id": "1065",
+      "target_display_name": "Arthropoda",
+      "train_count": "24069",
+      "val_count": "3008",
+      "test_count": "3010"
+    },
+    {
+      "class_index": "8",
+      "target_id": "1267",
+      "target_display_name": "Cnidaria",
+      "train_count": "116",
+      "val_count": "14",
+      "test_count": "16"
+    },
+    {
+      "class_index": "9",
+      "target_id": "1410",
+      "target_display_name": "Foraminifera",
+      "train_count": "658",
+      "val_count": "82",
+      "test_count": "83"
+    },
+    {
+      "class_index": "10",
+      "target_id": "1806",
+      "target_display_name": "Echinodermata",
+      "train_count": "9",
+      "val_count": "1",
+      "test_count": "2"
+    },
+    {
+      "class_index": "11",
+      "target_id": "1821",
+      "target_display_name": "Chordata",
+      "train_count": "319",
+      "val_count": "39",
+      "test_count": "41"
+    },
+    {
+      "class_index": "12",
+      "target_id": "14260",
+      "target_display_name": "Rotifera",
+      "train_count": "313",
+      "val_count": "39",
+      "test_count": "40"
+    },
+    {
+      "class_index": "13",
+      "target_id": "146537",
+      "target_display_name": "Cyanobacteria",
+      "train_count": "78119",
+      "val_count": "9764",
+      "test_count": "9766"
+    },
+    {
+      "class_index": "14",
+      "target_id": "148898",
+      "target_display_name": "Bacillariophyta",
+      "train_count": "88519",
+      "val_count": "11064",
+      "test_count": "11066"
+    },
+    {
+      "class_index": "15",
+      "target_id": "345465",
+      "target_display_name": "Ochrophyta",
+      "train_count": "1008",
+      "val_count": "126",
+      "test_count": "126"
+    },
+    {
+      "class_index": "16",
+      "target_id": "369190",
+      "target_display_name": "Haptophyta",
+      "train_count": "2020",
+      "val_count": "252",
+      "test_count": "254"
+    },
+    {
+      "class_index": "17",
+      "target_id": "370437",
+      "target_display_name": "Heterokontophyta",
+      "train_count": "883748",
+      "val_count": "110468",
+      "test_count": "110470"
+    },
+    {
+      "class_index": "18",
+      "target_id": "450030",
+      "target_display_name": "Myzozoa",
+      "train_count": "59144",
+      "val_count": "7393",
+      "test_count": "7393"
+    },
+    {
+      "class_index": "19",
+      "target_id": "582420",
+      "target_display_name": "Rhizaria",
+      "train_count": "4742",
+      "val_count": "592",
+      "test_count": "594"
+    },
+    {
+      "class_index": "20",
+      "target_id": "582421",
+      "target_display_name": "Radiozoa",
+      "train_count": "6206",
+      "val_count": "775",
+      "test_count": "777"
+    },
+    {
+      "class_index": "21",
+      "target_id": "ntc_028",
+      "target_display_name": "egg/cyst",
+      "train_count": "25451",
+      "val_count": "3181",
+      "test_count": "3182"
+    },
+    {
+      "class_index": "22",
+      "target_id": "ntc_082",
+      "target_display_name": "detritus",
+      "train_count": "2061388",
+      "val_count": "257673",
+      "test_count": "257675"
+    }
+  ],
+  "dataset_split_counts": {
+    "life_watch": {
+      "train": 261755,
+      "val": 32359,
+      "test": 32591
+    },
+    "life_watch_2026_image_library": {
+      "train": 1215465,
+      "test": 151836,
+      "val": 152359
+    },
+    "flowcam_net": {
+      "train": 240999,
+      "test": 30000,
+      "val": 29983
+    },
+    "tara_pacific_deck": {
+      "train": 1258380,
+      "val": 157723,
+      "test": 157772
+    },
+    "tara_pacific_bongo": {
+      "train": 280279,
+      "test": 34948,
+      "val": 34660
+    },
+    "ifremer_srn": {
+      "val": 477,
+      "train": 3696,
+      "test": 449
+    }
+  }
+}
