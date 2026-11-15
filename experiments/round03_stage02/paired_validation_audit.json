@@ -1,0 +1,73 @@
+{
+  "baseline": "A0",
+  "candidate": "A2",
+  "evaluation": "paired deterministic post-training validation",
+  "sample_count": 413735,
+  "class_count": 20,
+  "bootstrap_replicates": 1000,
+  "seed": 20260820,
+  "high_support_threshold": 5000,
+  "global_metrics": [
+    {
+      "metric": "macro_f1",
+      "baseline": 0.8128812598532079,
+      "candidate": 0.8197635893875553,
+      "delta": 0.00688232953434742,
+      "bootstrap_ci95_low": -0.005235393178008837,
+      "bootstrap_median": 0.0066919756988296775,
+      "bootstrap_ci95_high": 0.018831494050892596
+    },
+    {
+      "metric": "balanced_accuracy",
+      "baseline": 0.8438159243648785,
+      "candidate": 0.8517803214736361,
+      "delta": 0.007964397108757626,
+      "bootstrap_ci95_low": -0.008977341531968526,
+      "bootstrap_median": 0.00784859846599728,
+      "bootstrap_ci95_high": 0.024990270963970666
+    }
+  ],
+  "high_support_classes": [
+    {
+      "true_class_name": "Cyanobacteria",
+      "validation_support": 9764,
+      "recall_delta": 0.0028676771814829527,
+      "recall_ci95_low": 0.0004071077427282911,
+      "recall_ci95_high": 0.005428103236378545,
+      "f1_delta": 0.002840761995175467,
+      "f1_ci95_low": 0.0006196262878141456,
+      "f1_ci95_high": 0.005047955136217757
+    },
+    {
+      "true_class_name": "Heterokontophyta",
+      "validation_support": 121527,
+      "recall_delta": -0.00017280110592710063,
+      "recall_ci95_low": -0.000921605898277722,
+      "recall_ci95_high": 0.0005766208332305117,
+      "f1_delta": 0.0013950401929654355,
+      "f1_ci95_low": 0.0008054439386903534,
+      "f1_ci95_high": 0.002006924398626403
+    },
+    {
+      "true_class_name": "Myzozoa",
+      "validation_support": 7393,
+      "recall_delta": 0.0009468416069254859,
+      "recall_ci95_low": -0.0028405248207763467,
+      "recall_ci95_high": 0.004737589611795014,
+      "f1_delta": 0.001860393197800403,
+      "f1_ci95_low": -0.0017059026060469717,
+      "f1_ci95_high": 0.005346747694017114
+    },
+    {
+      "true_class_name": "detritus",
+      "validation_support": 258133,
+      "recall_delta": 0.0021035667659694557,
+      "recall_ci95_low": 0.0016230973955286472,
+      "recall_ci95_high": 0.00260727996807856,
+      "f1_delta": 0.0010297517156809821,
+      "f1_ci95_low": 0.0007145067144441464,
+      "f1_ci95_high": 0.0013579621411716452
+    }
+  ],
+  "alignment_verified": true
+}

@@ -2,7 +2,7 @@
 
 Architecture: **ConvNeXt V2-L**. Internal experiment trace: **R3S2-A2** (round 03, stage 02); EMA epoch 40. The public display name does not change the checkpoint, class map, or experiment records.
 
-**Release: `a2-20-target-v1`. A2's 20-target EMA epoch-40 classifier, not the separately published 23-target R1 historical baseline. Noncommercial, tensor-only safetensors package. Source-rights uncertainty is disclosed below; this is not a claim of universal rights clearance.**
+**Release: `a2-20-target-v1`. A2's 20-target EMA epoch-40 classifier, the only downloadable PICASSO-Models checkpoint. Noncommercial, tensor-only safetensors package. Source-rights uncertainty is disclosed below; this is not a claim of universal rights clearance.**
 
 ## Model identity
 
@@ -65,7 +65,9 @@ These are existing saved experiment results, not newly reproduced measurements:
 | Balanced accuracy | 0.833754 |
 | Weighted F1 | 0.940289 |
 
-Class imbalance is substantial and some test classes have very few examples. Aggregate accuracy should not replace class-level performance. A2 and R1 use different data, label spaces, and evaluation cohorts; their scores are not a controlled head-to-head comparison. No independent external benchmark was rerun for this release review.
+Class imbalance is substantial and some test classes have very few examples. Aggregate accuracy should not replace class-level performance. No independent external benchmark was rerun for this release review.
+
+[Same-cohort A0-A3 summaries](https://github.com/mm1719/PICASSO-Models/blob/main/experiments/round03_stage02/README.md) report all four completed 20-target lines, not only the released model. A1 has the highest observed test macro F1; A2 was selected using the original joint validation point-estimate gate. A later class-stratified paired validation bootstrap found A2-minus-A0 macro F1 gain 0.006882 (95% CI -0.005235 to 0.018831) and balanced-accuracy gain 0.007964 (95% CI -0.008977 to 0.024990). Both intervals include zero; second-seed replication and final research promotion remain deferred. Public weight selection does not establish a reproducible global gain.
 
 ## Output-label order
 
@@ -110,7 +112,7 @@ The original checkpoint is not distributed: it contains training configuration w
 
 Completed checks, exact package versions, tensor hashes, safe-format checksum, and synthetic CPU equivalence results are in [VALIDATION.md](VALIDATION.md) and `validation.json`. Conversion checks are not a rerun of the 413,764-row historical test set, a full dataset-deduplication or privacy audit, or independent evidence of generalization. Echinodermata has only two saved test examples. The split is image-level rather than acquisition-, source-, or site-held-out; dependencies between splits have not been ruled out.
 
-A2 and R1 differ in class maps, datasets, and evaluation cohorts. Their scores are not a controlled head-to-head comparison. This safe-format package is not a promise of drop-in compatibility with an application expecting the original PyTorch checkpoint container. Use the bundled label order and preprocessing, and evaluate any application integration explicitly.
+This safe-format package contains all inference tensors but no optimizer/scheduler state. It is not a resumable training checkpoint or a promise of drop-in compatibility with an application expecting the original PyTorch checkpoint container. Use the bundled label order and preprocessing, and evaluate any application integration explicitly.
 
 ## Bounded membership-inference check
 

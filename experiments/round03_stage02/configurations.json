@@ -1,0 +1,128 @@
+{
+  "common": {
+    "model": {
+      "drop_path_rate": 0.15,
+      "image_size": 128,
+      "modelname": "convnextv2_large.fcmae_ft_in22k_in1k",
+      "num_classes": 20,
+      "pretrained": true
+    },
+    "training": {
+      "amp": true,
+      "batch_size": 192,
+      "checkpoint_metric": "val_macro_f1",
+      "class_weight_exponent": 0.22,
+      "class_weight_mode": "panaiotis_relative",
+      "ema": {
+        "decay": 0.9998,
+        "enabled": true,
+        "primary": true,
+        "validate": true
+      },
+      "epochs": 40,
+      "initial_lr": 0.0001,
+      "label_smoothing": 0.08,
+      "optimizer": "adamw",
+      "scheduler": "cosine",
+      "seed": 42,
+      "test_tta": null,
+      "torch_compile": {
+        "enabled": true,
+        "mode": "reduce-overhead"
+      },
+      "use_class_weights": true,
+      "use_validation": true,
+      "warmup_epochs": 6,
+      "weight_decay": 0.08
+    },
+    "dataset": {
+      "num_workers": 8,
+      "split_ratio": [
+        0.8,
+        0.1,
+        0.1
+      ],
+      "split_seed": 20260421,
+      "test_num_workers": 0
+    },
+    "augmentation_train_common": {
+      "mode": "timm_imagenet_standard",
+      "color_jitter": 0.4,
+      "hflip": 0.5
+    },
+    "augmentation_eval": {
+      "mode": "resize_center_crop"
+    }
+  },
+  "variants": {
+    "A0": {
+      "run_id": "2026-07-24_181221_r03s02_convnextv2_l_clean_ce_anchor_img128_b192",
+      "crop_scale": [
+        0.08,
+        1.0
+      ],
+      "crop_ratio": [
+        0.75,
+        1.3333
+      ],
+      "auto_augment": "rand-m9-mstd0.5-inc1",
+      "selected_ema_epoch": 32,
+      "logged_training_seconds": 97484.09062719345,
+      "automatic_test_enabled_in_saved_config": true,
+      "test_recovered_separately": false,
+      "weights_published": false
+    },
+    "A1": {
+      "run_id": "2026-08-14_204751_r03s02_convnextv2_l_rrc_scale50_img128_b192",
+      "crop_scale": [
+        0.5,
+        1.0
+      ],
+      "crop_ratio": [
+        0.75,
+        1.3333
+      ],
+      "auto_augment": "rand-m9-mstd0.5-inc1",
+      "selected_ema_epoch": 40,
+      "logged_training_seconds": 98135.96316862106,
+      "automatic_test_enabled_in_saved_config": false,
+      "test_recovered_separately": true,
+      "weights_published": false
+    },
+    "A2": {
+      "run_id": "2026-08-16_114723_r03s02_convnextv2_l_ra_m4_img128_b192",
+      "crop_scale": [
+        0.08,
+        1.0
+      ],
+      "crop_ratio": [
+        0.75,
+        1.3333
+      ],
+      "auto_augment": "rand-m4-mstd0.5-inc1",
+      "selected_ema_epoch": 40,
+      "logged_training_seconds": 97273.87055420876,
+      "automatic_test_enabled_in_saved_config": true,
+      "test_recovered_separately": false,
+      "weights_published": true
+    },
+    "A3": {
+      "run_id": "2026-08-18_221835_r03s02_convnextv2_l_ra_off_img128_b192",
+      "crop_scale": [
+        0.08,
+        1.0
+      ],
+      "crop_ratio": [
+        0.75,
+        1.3333
+      ],
+      "auto_augment": null,
+      "selected_ema_epoch": 36,
+      "logged_training_seconds": 97597.70153522491,
+      "automatic_test_enabled_in_saved_config": true,
+      "test_recovered_separately": false,
+      "weights_published": false
+    }
+  },
+  "default_resolution_note": "A0 omits crop_scale/crop_ratio; values above resolve the existing training transform defaults. These are historical settings, not runnable training configs."
+}

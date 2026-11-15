@@ -30,4 +30,4 @@ Machine-readable results are in [validation.json](validation.json). Every public
 - The conversion checks themselves are not privacy evidence. A separate bounded membership-inference and limited overlap audit is documented in [PRIVACY_EVALUATION.md](PRIVACY_EVALUATION.md); it does not cover full content/near-duplicate overlap, acquisition correlation, image reconstruction, stronger white-box attacks, or differential privacy.
 - No cross-hardware, GPU, all-input equivalence, cross-instrument generalization, or production application integration is claimed.
 - Conversion verification does not establish third-party rights or override unverified source contracts.
-- The tensor-only package is not a drop-in replacement for software expecting the original checkpoint container. It must not be paired with R1's 23-target labels.
+- The tensor-only package is not a drop-in replacement for software expecting the original checkpoint container. It must not be paired with incompatible weights or labels from another model version.

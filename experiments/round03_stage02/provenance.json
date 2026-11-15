@@ -1,0 +1,90 @@
+{
+  "status": "Historical saved results, not rerun for publication",
+  "split_counts": {
+    "train": 3309950,
+    "validation": 413735,
+    "test": 413764
+  },
+  "manifest_sha256_recorded_by_runs": {
+    "main": "37fff81b497cb9940e348a6a50d6e7c5ae4da8849de07efb7108b1e813b6cb48",
+    "ecotaxa": "816b5142df5e40a881f463dd8c5c4b47b261a125f5429e390a651b70983f4400"
+  },
+  "supporting_data_sha256_recorded_by_runs": {
+    "aphia_ids.txt": "2c9f34ed1be20f6de7045d20323b95205bf818e49e2003c0a37377bb2933aef8",
+    "class_counts.csv": "d83ac30600b6938ce99e045b319c5ae68d59b9b5b1ddbdaa28f6a5ee996e2003",
+    "class_index.csv": "e7044ffc91d444f45f72110b194249318b814985179ebebe500a297be15f7a1f",
+    "classes.txt": "b2f78fefa6ed0a35debf79c29431f53bf3c2cdc18747ee00721a0e08daaf4e02",
+    "data_policy.json": "dad3a461736a03438272a4c7d1f97c4b10f5e0aa7d9429dd31042856f42b6aa4",
+    "ecotaxa_rollup_target_map.csv": "bc00ce33e3c26944c1e878bd48da63b7ebb004442b500705e89309da8d60dc02",
+    "split_manifest.csv": "51639823de20d7587137eabdc3255786a8ab4512319988b5345ae363b376828f",
+    "split_policy.json": "537c523e0c8984d327967af05a2e2629323ad484cd7bfb3921f47ff4da816485",
+    "target_id_map.csv": "3ce4c6323779e9a61b1f4cf226259617f277db331cc32630b7e520056887cf64",
+    "target_ids.txt": "2c9f34ed1be20f6de7045d20323b95205bf818e49e2003c0a37377bb2933aef8",
+    "test.txt": "5ad7c40e0a0b54e74b8e7573d77fc0eb45cd031bcc85bfba9a0471738db138e0",
+    "train.txt": "b5ba990bdc46d5cb3b094ca15517653f15dd195c544ddde0c739075fdac09678",
+    "val.txt": "4877391652bdffd0fe5bde4b58129457d19045a2d7e1d861ac574e40c7aefd14"
+  },
+  "runs": {
+    "A0": {
+      "run_id": "2026-07-24_181221_r03s02_convnextv2_l_clean_ce_anchor_img128_b192",
+      "source_artifact_sha256": {
+        "run_config.json": "5c8ea4bf4a290656c8894f19d763c67f3ef0c9afc55efd6258c7ae250b086245",
+        "training_stats.json": "1efa17cc6e509320b1283d292adb82d3dbe669b41cbed3c15f0961a95c325e93",
+        "epoch_metrics.csv": "08775d9f6455d925a6c9c2a40002313b1d61827f1f5900b7f949b12e9a8011a1",
+        "class_index.csv": "e7044ffc91d444f45f72110b194249318b814985179ebebe500a297be15f7a1f",
+        "source_refs.json": "79849fd4c48fa8bc8a8a9861da7de406d5e9454492f3ad7e1000cecb9f0eb8a9",
+        "test_metrics.json": "aff6b8ecc569284025950bd68dd35924746a7c6585c859a59fde3fb4c8764f13",
+        "table4_classwise_performance.csv": "8e33752e282781593b3941840fffe2f7de049adbf3e00e9f39fdccf449ab1ffb",
+        "table3_grouped_accuracy.csv": "1c1599eb24f7f77565ff361563e1608a0d0a607f288f7dd35acc15f1b56eaf92",
+        "best_model.pt": "dde41b868ac09166879bf9d0130a8ce8e3675bad2fba616269f390f1e3b651f7"
+      }
+    },
+    "A1": {
+      "run_id": "2026-08-14_204751_r03s02_convnextv2_l_rrc_scale50_img128_b192",
+      "source_artifact_sha256": {
+        "run_config.json": "8a7fbf3b5b08a6adfdb6c73436feb2f3885d0a55457f0164503b91db641c7a58",
+        "training_stats.json": "0d6ae3e1ce65743b285634435d708017d56de49619c33f2e08ad52232707af79",
+        "epoch_metrics.csv": "5ba7d4353bc2cc08535e355eb89fdfb88d0e5d5346b7ac80e8e8de5a856ceb34",
+        "class_index.csv": "e7044ffc91d444f45f72110b194249318b814985179ebebe500a297be15f7a1f",
+        "source_refs.json": "79849fd4c48fa8bc8a8a9861da7de406d5e9454492f3ad7e1000cecb9f0eb8a9",
+        "test_metrics.json": "5d22225404a4526296e100eedd330e232ef250b0e27757555e6e5f650f7981d7",
+        "table4_classwise_performance.csv": "d143dd1860c47ecb2f672b77bb07250ea870dab5086ff3c179875e5e20bec1e4",
+        "table3_grouped_accuracy.csv": "b8e9e3f407bef79f62dbbe497bb479580bb80d2f05f5952caf33a2bd80a8598d",
+        "best_model.pt": "2a84268ede229a5304cecb35ce0dd90b025ea18d2f4c7cc25b3d4b1da82ddf1f"
+      }
+    },
+    "A2": {
+      "run_id": "2026-08-16_114723_r03s02_convnextv2_l_ra_m4_img128_b192",
+      "source_artifact_sha256": {
+        "run_config.json": "13d6e04c75f27fde7cf39c871e92ab7dcdb7b2eaf7ba6804f3dc373da162348e",
+        "training_stats.json": "25e56660e8f4893067f083a851c75897655577f51b7add8eff68655d19e7aec8",
+        "epoch_metrics.csv": "cd62bd97e4f7563c8d825c3187fba21ead475ca5f43b1fcd7f9a75a632bec6a7",
+        "class_index.csv": "e7044ffc91d444f45f72110b194249318b814985179ebebe500a297be15f7a1f",
+        "source_refs.json": "79849fd4c48fa8bc8a8a9861da7de406d5e9454492f3ad7e1000cecb9f0eb8a9",
+        "test_metrics.json": "30833c10a0e531ad76ad1cf0f4967eb4b7b1847bf4ddcb7f1edc9640e1460daf",
+        "table4_classwise_performance.csv": "1748b1824c0bdebe18b5390829f8a6ace57ab263c0eb41a4f0400a6b90121591",
+        "table3_grouped_accuracy.csv": "cc646c42e0b3081e76053d7bf5eaf10035441d1a6a062909cc8a3c2faa2dd491",
+        "best_model.pt": "32f4689c4894900bc2ae440bb17b553df10bd0444ad67b294652901a3b616430"
+      }
+    },
+    "A3": {
+      "run_id": "2026-08-18_221835_r03s02_convnextv2_l_ra_off_img128_b192",
+      "source_artifact_sha256": {
+        "run_config.json": "427d7f3aad767121011a4b52048fd2ef76fc383edf020557e58ab3da04fec44b",
+        "training_stats.json": "7ddb739698b65692fcbe838e414b31b2a9f504dc6f361b3598e3d925bc847838",
+        "epoch_metrics.csv": "34c2fa5ce8a60626c21582bc935cbe78cedbe0b527f7ee30b6a52046fad127d4",
+        "class_index.csv": "e7044ffc91d444f45f72110b194249318b814985179ebebe500a297be15f7a1f",
+        "source_refs.json": "79849fd4c48fa8bc8a8a9861da7de406d5e9454492f3ad7e1000cecb9f0eb8a9",
+        "test_metrics.json": "dbdbbf32aec6e3a9e4b8f482b90e35c14b42f61e12ad48ed7dc7f92da62cf5cd",
+        "table4_classwise_performance.csv": "37cfd48a24f211f78505a5306c7e161e5463831e6057c7fd523d6fe05fd9dc28",
+        "table3_grouped_accuracy.csv": "84de04fa50f80fbc70458e5d0559934e627063f26dd4e9f112654e8c21510dc2",
+        "best_model.pt": "4f24de1d4e9f62ab3e800d53a4bf77b5e11b112872f2ee8d54c3cac2f3e8249b"
+      }
+    }
+  },
+  "paired_audit_source_sha256": {
+    "summary.json": "f5fc96b39075c51a39c508cf3fc7170bfb4e663a2441e2a970c2477e381d14e9",
+    "bootstrap_summary.csv": "8e813adf988a39a2360c757e073c2a1787bf5227466d0b7dc8b240e48f2cfcb2",
+    "classwise_delta.csv": "e3a5f042e7cd0ebf828271f2bf561c6f6742e4f1b49dc29bf05127c818c437ea"
+  }
+}
