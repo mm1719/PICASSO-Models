@@ -1,4 +1,6 @@
-# PICASSO A2: 20-target ConvNeXt V2-L
+# PICASSO 20-Class Plankton Classifier
+
+Architecture: **ConvNeXt V2-L**. Internal experiment trace: **R3S2-A2** (round 03, stage 02); EMA epoch 40. The public display name does not change the checkpoint, class map, or experiment records.
 
 **Release: `a2-20-target-v1`. A2's 20-target EMA epoch-40 classifier, not the separately published 23-target R1 historical baseline. Noncommercial, tensor-only safetensors package. Source-rights uncertainty is disclosed below; this is not a claim of universal rights clearance.**
 

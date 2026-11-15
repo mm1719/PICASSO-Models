@@ -1,4 +1,6 @@
-# A2 bounded membership-inference evaluation
+# PICASSO 20-Class Plankton Classifier: bounded membership-inference evaluation
+
+Architecture: ConvNeXt V2-L. Internal experiment trace: R3S2-A2.
 
 **2026-11-15. A weak membership-discrimination signal was measured. This is not a zero-leakage certificate, an image-reconstruction test, or a data-rights determination.** Full-weight publication enables stronger white-box attacks than the ones tested here.
 

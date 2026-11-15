@@ -1,8 +1,8 @@
-# PICASSO A2: 20-target FlowCAM classifier
+# PICASSO 20-Class Plankton Classifier
 
 **Release `a2-20-target-v1`: noncommercial, 20-target A2 weights.**
 
-A tensor-only export of PICASSO's A2 EMA epoch-40 ConvNeXt V2-L classifier. This is the **20-target A2 model**, not the separately released 23-target [R1 historical baseline](https://github.com/mm1719/PICASSO-Models/releases/tag/r1-historical-baseline-v1). The targets include coarse taxonomic groups and non-taxonomic categories; they are not 20 species.
+A tensor-only release of a **ConvNeXt V2-L** FlowCAM classifier. Internal experiment trace: **R3S2-A2**, EMA epoch 40. This is the **20-target A2 model**, not the separately released 23-target [R1 historical baseline](https://github.com/mm1719/PICASSO-Models/releases/tag/r1-historical-baseline-v1). The targets include coarse taxonomic groups and non-taxonomic categories; they are not 20 species.
 
 - RGB input; frozen 128 × 128 evaluation pipeline.
 - Original saved test results: **93.9927% top-1**, **0.789876 macro F1**, 413,764 image rows. These were not rerun for this package and are not a cross-source benchmark.
@@ -15,7 +15,7 @@ The six principal datasets have identified public statements. A2 also used 48 Ec
 
 ## Local inference
 
-From the [A2 release](https://github.com/mm1719/PICASSO-Models/releases/tag/a2-20-target-v1), download `model.safetensors` and the Source code archive. In the extracted archive, enter the **`a2/` directory** and place the weight file beside `config.json`. The weight is a separate release asset, not in the source archive. Verify `SHA256SUMS` from inside `a2/`. Do not use the R1 asset with A2 labels.
+From the [model release](https://github.com/mm1719/PICASSO-Models/releases/tag/a2-20-target-v1), download **`model.safetensors`** and **`PICASSO-20-Class-Plankton-Classifier-metadata.zip`**. Extract the metadata bundle, enter its `PICASSO-20-Class-Plankton-Classifier/` folder, and put the weight beside `config.json`. Run `sha256sum -c SHA256SUMS` there. The metadata bundle contains no weights or original images. Do not use the historical 23-class baseline asset with these labels.
 
 ```bash
 python -m venv .venv

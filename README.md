@@ -4,7 +4,7 @@ Two separately versioned, noncommercial FlowCAM classifiers. **A2 and R1 are not
 
 | Model | Targets | Release and documentation |
 |---|---:|---|
-| A2, EMA epoch 40 | 20 | [A2 weights](https://github.com/mm1719/PICASSO-Models/releases/tag/a2-20-target-v1) · [A2 documentation](a2/README.md) · [model card](a2/MODEL_CARD.md) |
+| **PICASSO 20-Class Plankton Classifier** (ConvNeXt V2-L; R3S2-A2) | 20 | [Model weights](https://github.com/mm1719/PICASSO-Models/releases/tag/a2-20-target-v1) · [Documentation](a2/README.md) · [model card](a2/MODEL_CARD.md) |
 | R1 historical baseline, EMA epoch 27 | 23 | [Preserved R1 release](https://github.com/mm1719/PICASSO-Models/releases/tag/r1-historical-baseline-v1) · [original R1 documentation](https://github.com/mm1719/PICASSO-Models/tree/r1-historical-baseline-v1) |
 
 A2 adds source-rights uncertainty disclosures and a bounded membership-inference audit that measured a weak signal, **not proof of zero leakage**. Read its [data provenance](a2/DATA_PROVENANCE.md), [audit limitations](a2/PRIVACY_EVALUATION.md), and [CC BY-NC weight terms](a2/LICENSE.md). No original images or individual audit records are distributed. Saved model accuracies use different labels/cohorts and are not a controlled comparison.

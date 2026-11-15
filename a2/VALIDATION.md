@@ -1,4 +1,6 @@
-# A2 conversion and inference verification
+# PICASSO 20-Class Plankton Classifier: conversion and inference verification
+
+Architecture: ConvNeXt V2-L. Internal experiment trace: R3S2-A2.
 
 ## Passed checks
 

@@ -1,6 +1,6 @@
 # Attribution and source-rights ledger
 
-Prepared for A2, the 20-target classifier. Original datasets and private source exports are not included. Identified source statements and unverified additional-source terms are distinguished below.
+Prepared for **PICASSO 20-Class Plankton Classifier** (ConvNeXt V2-L; internal experiment trace R3S2-A2), the 20-target classifier. Original datasets and private source exports are not included. Identified source statements and unverified additional-source terms are distinguished below.
 
 ## Pretrained model and implementation
 
