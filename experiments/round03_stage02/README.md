@@ -99,6 +99,43 @@ accuracy after collapsing predictions into support groups. Values ending in
 `_pct` are percentages; empty support bins are omitted. Each line's groups
 sum to 20 targets and 413,764 test rows.
 
+### Historical Top-k Consistency Note
+
+A 2026-11-15 read-only audit compared the saved overall top-k metrics with hit
+counts recomputed from the original per-image prediction CSVs. All 20
+line/top-k combinations were checked (A0-A3, top-1 through top-5); the four
+nonzero differences are listed below. Each denominator is 413,764 images.
+The source metric/group files still match the hashes in [provenance.json](provenance.json).
+
+| Line | Metric | Saved overall correct count | Prediction CSV correct count | CSV minus saved |
+|---|---|---:|---:|---:|
+| A0 | top-2 | 408,917 | 408,918 | +1 |
+| A1 | top-3 | 409,440 | 409,441 | +1 |
+| A3 | top-4 | 411,371 | 411,372 | +1 |
+| A3 | top-5 | 411,587 | 411,586 | -1 |
+
+One image is approximately 0.000242 percentage points. A2 agrees at every k.
+Top-1, balanced accuracy and macro/weighted precision, recall and F1 agree with
+the saved prediction-derived results for all four lines. The grouped table
+comes from CSV rankings: its weighted top-3 aggregate therefore differs from
+the saved A1 overall top-3 by one hit; its weighted A3 top-5 differs by minus
+one hit. This is not a difference in support groups or denominators.
+
+The historical evaluation code selected overall top-k from logits but selected
+CSV top-five labels independently from softmax scores. Finite-precision
+softmax can introduce additional ties through rounding or underflow; a CPU
+FP16 fixture reproduces the resulting inconsistency. This establishes a code
+mechanism, not a replay of the original per-image logits or proof of the exact
+numerical event behind each historical differing hit.
+
+The public [Training exporter](https://github.com/mm1719/PICASSO-Training) now
+uses one logit-based ranking for metrics and CSV labels, with aligned softmax
+scores and dedicated regression tests. **All historical values in this report,
+the result CSV/JSON files and original runs are retained, not silently
+recomputed or corrected.** No model inference or training was rerun for this
+audit. The A2 weights, inference helper, label order, download package and
+licensing are unchanged.
+
 ## Why A2 Is the Public Model
 
 The original promotion gate required improvements in both validation macro F1
