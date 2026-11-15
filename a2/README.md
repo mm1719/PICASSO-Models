@@ -31,7 +31,7 @@ The safetensors file contains the full inference model, not just its classifier 
 
 Use Python 3.11 for the commands below (`python` must refer to that version).
 The unmodified requirements and CPU helper passed in a fresh, isolated venv on
-Linux x86_64 with Python 3.11.15, including `pip check`, all 18 bundle checksums,
+Linux x86_64 with Python 3.11.15, including `pip check`, bundle checksums,
 RGB/grayscale inference and invalid-input rejection. Other Python versions and
 platforms remain unverified; see [validation boundaries](VALIDATION.md).
 
@@ -43,24 +43,49 @@ sha256sum -c SHA256SUMS
 python infer.py /path/to/your/own/crop.png
 ```
 
-The helper uses CPU, checks the weight SHA-256, and never downloads pretrained weights. It reports top-5 labels and softmax scores, not calibrated probabilities or expert identifications. The original runtime's checkpoint container is not included; this is not advertised as a drop-in application replacement.
+The helper defaults to CPU, checks the weight SHA-256, and never downloads pretrained weights. It reports top-5 labels and softmax scores, not calibrated probabilities or expert identifications. The original runtime's checkpoint container is not included; this is not advertised as a drop-in application replacement.
 
 The standard PyPI installation also installs NVIDIA/CUDA dependencies on the
 tested Linux platform, even for CPU use. The resulting venv occupied about
 4.8 GiB, excluding the roughly 786 MB weight file; this does not install or
 change the host NVIDIA driver.
 
-### CPU Helper Versus GPU Model Support
+### Choose CPU or GPU
 
-The model is not CPU-only. A separate FP32 CUDA smoke test of these same weights
-passed on an NVIDIA RTX 5090 with torch `2.11.0+cu130`: three passes of two
-synthetic inputs produced finite logits and the same top-five indices as CPU.
-This check explicitly moved both the model and input tensors to CUDA.
+```bash
+python infer.py /path/to/your/own/crop.png --device cpu
+python infer.py /path/to/your/own/crop.png --device cuda
+```
 
-The packaged `infer.py` remains the CPU reference helper: it has no `--device`
-option and does not automatically use an available GPU. The CUDA check is not
-a GPU CLI feature, performance benchmark or full test-set evaluation. See
-[verification details](VALIDATION.md).
+Omitting `--device` preserves the original CPU behavior. `cuda` uses the first
+visible CUDA device and moves both the model and input to it. It requires an
+available NVIDIA GPU, a working driver and CUDA-enabled PyTorch. If unavailable,
+the command exits with an error rather than silently falling back to CPU;
+select `--device cpu` explicitly to run on CPU. Other device names and automatic
+device selection are not supported.
+
+Both modes use the same weights, labels and preprocessing and return the same
+top-five JSON structure. GPU inference can have small floating-point differences
+from CPU; bitwise equality is not promised. RGB and grayscale CLI inference
+passed on RTX 5090 with torch `2.11.0+cu130`, with matching top-five indices for
+the tested synthetic inputs. See [verification details](VALIDATION.md).
+
+On shared hosts, use the host's workload manager or GPU mutex before running
+CUDA inference. This portable helper does not acquire a host-specific lock.
+
+### Run the Regression Tests
+
+From the extracted bundle directory, with the requirements installed:
+
+```bash
+python -m unittest -v test_infer
+```
+
+The 13 CPU-only tests use generated images and a small temporary model in place
+of ConvNeXt construction. They require neither the release weight nor a GPU,
+and cover device selection, explicit CUDA errors, unchanged output structure,
+and checksum/label rejection. They are not model-accuracy tests. The current
+bundle's `SHA256SUMS` covers 19 files, including this test and the weight.
 
 ## Scope and limits
 

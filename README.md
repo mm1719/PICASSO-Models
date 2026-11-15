@@ -38,13 +38,15 @@ snapshots can still contain obsolete files.
 ## Installation Verification
 
 The README workflow passed in a fresh, isolated Linux x86_64 / Python 3.11.15
-venv: installation from the unchanged requirements, `pip check`, all 18 bundle
+venv: installation from the unchanged requirements, `pip check`, bundle
 checksums, RGB/grayscale CPU inference and invalid-input rejection. The existing
 research environment was not modified.
 
-The released `infer.py` explicitly uses **CPU**; it does not select GPU
-automatically. This is a helper choice, not a model restriction: a separate
-FP32 CUDA check of the same weights passed on an RTX 5090. See the
+The released `infer.py` now supports `--device cpu` (the unchanged default) and
+`--device cuda`. Explicit CUDA requests fail if CUDA is unavailable; there is
+no silent CPU fallback. The actual GPU CLI passed on an RTX 5090, alongside
+13 CPU-only regression tests. The package contains 19 checksum entries,
+including the new test file and unchanged weight. See the
 [inference guide](a2/README.md) and [exact checks and limits](a2/VALIDATION.md).
 
 ## Training Results
