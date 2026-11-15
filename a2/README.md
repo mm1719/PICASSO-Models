@@ -29,8 +29,10 @@ From the [model release](https://github.com/mm1719/PICASSO-Models/releases/tag/a
 
 The safetensors file contains the full inference model, not just its classifier head. It does not include optimizer/scheduler state and is not a checkpoint for resuming training. Original checkpoints and other experiment weights are retained locally.
 
-The CPU helper was checked on Linux x86_64 with Python 3.11.15 and the recorded
-dependencies. Fresh installation of this model-inference stack and other
+Use Python 3.11 for the commands below (`python` must refer to that version).
+The unmodified requirements and CPU helper passed in a fresh, isolated venv on
+Linux x86_64 with Python 3.11.15, including `pip check`, all 18 bundle checksums,
+RGB/grayscale inference and invalid-input rejection. Other Python versions and
 platforms remain unverified; see [validation boundaries](VALIDATION.md).
 
 ```bash
@@ -42,6 +44,23 @@ python infer.py /path/to/your/own/crop.png
 ```
 
 The helper uses CPU, checks the weight SHA-256, and never downloads pretrained weights. It reports top-5 labels and softmax scores, not calibrated probabilities or expert identifications. The original runtime's checkpoint container is not included; this is not advertised as a drop-in application replacement.
+
+The standard PyPI installation also installs NVIDIA/CUDA dependencies on the
+tested Linux platform, even for CPU use. The resulting venv occupied about
+4.8 GiB, excluding the roughly 786 MB weight file; this does not install or
+change the host NVIDIA driver.
+
+### CPU Helper Versus GPU Model Support
+
+The model is not CPU-only. A separate FP32 CUDA smoke test of these same weights
+passed on an NVIDIA RTX 5090 with torch `2.11.0+cu130`: three passes of two
+synthetic inputs produced finite logits and the same top-five indices as CPU.
+This check explicitly moved both the model and input tensors to CUDA.
+
+The packaged `infer.py` remains the CPU reference helper: it has no `--device`
+option and does not automatically use an available GPU. The CUDA check is not
+a GPU CLI feature, performance benchmark or full test-set evaluation. See
+[verification details](VALIDATION.md).
 
 ## Scope and limits
 

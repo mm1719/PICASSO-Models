@@ -2,9 +2,9 @@
 
 Architecture: ConvNeXt V2-L. Internal experiment trace: R3S2-A2.
 
-## Passed checks
+## Original conversion checks
 
-This is safe-format conversion of the A2 20-target EMA epoch-40 checkpoint, not retraining or a scientific test-set rerun. Original artifacts were read-only. No original images were used, no GPU was used, and network access was blocked during inference verification.
+This is safe-format conversion of the A2 20-target EMA epoch-40 checkpoint, not retraining or a scientific test-set rerun. Original artifacts were read-only. No original images were used, no GPU was used, and network access was blocked during the original conversion verification. Subsequent installation and CUDA checks are recorded separately below.
 
 1. Statically interpreted protocol-2 metadata into inert descriptors. No pickle callable was executed; neither `torch.load` nor `pickle.load` was used. Unknown constructs are rejected. The parser passed nine rejection/safety tests.
 2. Copied **380 dense float32 tensors**, totaling **785,802,320 tensor bytes**, from the checkpoint ZIP to safetensors. Per-tensor byte hashes, shapes, dtypes, offsets, and values all match.
@@ -46,17 +46,92 @@ not a repeat of the original four-case conversion-equivalence study.
   credential/machine-local-path patterns; a pattern scan is not a complete
   privacy or secret-discovery guarantee.
 
-The smoke checks used the existing Linux x86_64 / Python 3.11.15 research
-environment. **A fresh installation of the Models inference dependencies was
-not tested.** The separately reported PICASSO-Training fresh-environment check
-covers only its model-free evaluation dependencies, not this model stack.
+Those initial smoke checks used the existing Linux x86_64 / Python 3.11.15
+research environment; fresh Models installation had not yet been tested.
+That gap was addressed by the subsequent check below. The separately reported
+PICASSO-Training fresh-environment check covers only its model-free evaluation
+dependencies, not this model stack.
 Licenses, source-rights qualifications and privacy-audit limitations are unchanged.
+
+## 2026-11-15 fresh installation and CPU inference
+
+The published weight, metadata ZIP and checksum file were downloaded again.
+Their digests matched the release, and the downloaded metadata matched main
+commit `92d3763d567f18b257668d52f6de84c4f4edf2ba`. The executable helper,
+requirements, labels, configuration and weights are unchanged by this
+documentation refresh. The refreshed metadata ZIP is checked separately
+against its updated checksum manifest before and after publication.
+
+A new Python 3.11.15 venv started with only pip 24.0 and setuptools 79.0.1,
+with system site-packages disabled. The existing Python executable and standard
+library were reused read-only; this was an isolated package installation, not
+a new operating system. All six model dependencies came from the new venv.
+The existing research environment's package and file-metadata inventories were
+identical before and after testing.
+
+Installation used the README's unmodified requirements from public PyPI, with
+local pip configuration, extra indexes and caches disabled. No alternative
+CPU-wheel source was substituted. Direct dependency versions are those in
+the runtime list above; runtime torch identifies itself as `2.11.0+cu130`.
+Linux kernel was `7.0.0-43-generic`, x86_64, with glibc 2.43.
+
+| Check | Result |
+| --- | --- |
+| Fresh requirements installation | Exit 0 |
+| `pip check` | Exit 0; no broken requirements |
+| `sha256sum -c SHA256SUMS` | Exit 0; all 18 entries OK |
+| Generated RGB 161 x 109 PNG through the documented CLI | Exit 0 |
+| Generated grayscale 161 x 109 PNG through the same CLI | Exit 0 |
+| Supplemental CPU forward with Python socket connections blocked | Passed; output exactly matched the RGB CLI |
+| Incorrect model identifier | Rejected before model construction |
+| Incorrect expected weight checksum | Rejected before model construction |
+| Empty expected weight checksum | Rejected before model construction |
+| Corrupt weight fixture | Rejected before model construction |
+| Invalid label indices | Rejected before model construction |
+
+The combined verification script passed eight inference/rejection checks.
+Both CLI results had five distinct indices, exact label-map matches, finite
+scores in [0, 1], descending scores and a top-five sum no greater than 1 within
+floating-point tolerance. The supplemental forward recorded CPU parameters,
+CPU input/output tensors and finite `[1, 20]` logits. CUDA devices were hidden
+and CUDA was not initialized during these CPU checks. Invalid inputs were
+separate fixtures; the real bundle was not corrupted.
+
+Default PyPI installation includes NVIDIA/CUDA libraries inside the venv,
+which occupied approximately 4.8 GiB excluding the weight file. No host driver
+or system CUDA package was changed. Exact transitive versions, pip's install
+report, generated fixtures and command outputs are retained in the private
+verification archive. Direct requirements are pinned, but future transitive
+resolution can differ. These synthetic checks are not an accuracy evaluation.
+
+## 2026-11-15 separate CUDA model smoke
+
+The same isolated environment and checksum-verified release weight also passed
+a short FP32 CUDA model test on NVIDIA GeForce RTX 5090 (compute capability
+12.0), driver 580.178.04, torch `2.11.0+cu130`, CUDA runtime 13.0.
+
+- The process held the host's shared exclusive GPU lock for the whole check.
+  The lock was released normally and no compute process remained afterward.
+- The same frozen preprocessing produced a `[2, 3, 128, 128]` batch from the
+  two generated RGB/grayscale images. The model was loaded strictly with
+  `pretrained=False`; both model parameters and inputs were explicitly moved
+  to CUDA. Python socket connection calls were blocked during model evaluation.
+- Three GPU forward passes produced finite `[2, 20]` logits on `cuda:0`.
+  FP32 was used without autocast; TF32 and cuDNN benchmarking were disabled.
+- All three passes matched CPU top-five indices. Maximum absolute logit
+  difference was `1.430511474609375e-6`; maximum softmax-score difference was
+  `2.384185791015625e-7`. Logits passed `atol=1e-4, rtol=1e-4` comparisons.
+
+This establishes a successful CUDA forward on this host and these inputs, not
+bitwise CPU/GPU equivalence or full-dataset parity. The public `infer.py` was
+not changed: it still runs on CPU and has no GPU-selection flag. GPU model
+support and the reference helper's chosen device are separate facts.
 
 ## Not established by these checks
 
 - Historical 413,764-image test performance was not rerun; the saved metrics are explicitly historical.
 - Historical upstream weight revision and original package versions are not independently pinned.
 - The conversion checks themselves are not privacy evidence. A separate bounded membership-inference and limited overlap audit is documented in [PRIVACY_EVALUATION.md](PRIVACY_EVALUATION.md); it does not cover full content/near-duplicate overlap, acquisition correlation, image reconstruction, stronger white-box attacks, or differential privacy.
-- No cross-hardware, GPU, all-input equivalence, cross-instrument generalization, or production application integration is claimed.
+- Other GPUs/CPUs, Python versions, Windows/macOS and a separate host without NVIDIA drivers were not tested. The single-GPU smoke does not establish all-input equivalence, mixed-precision/compiled inference, throughput, cross-instrument generalization or production application integration.
 - Conversion verification does not establish third-party rights or override unverified source contracts.
 - The tensor-only package is not a drop-in replacement for software expecting the original checkpoint container. It must not be paired with incompatible weights or labels from another model version.

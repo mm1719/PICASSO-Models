@@ -35,6 +35,18 @@ checkpoints, and other models remain local. The old 23-target release and its
 download tag are retired. Git history is preserved, not erased; historical
 snapshots can still contain obsolete files.
 
+## Installation Verification
+
+The README workflow passed in a fresh, isolated Linux x86_64 / Python 3.11.15
+venv: installation from the unchanged requirements, `pip check`, all 18 bundle
+checksums, RGB/grayscale CPU inference and invalid-input rejection. The existing
+research environment was not modified.
+
+The released `infer.py` explicitly uses **CPU**; it does not select GPU
+automatically. This is a helper choice, not a model restriction: a separate
+FP32 CUDA check of the same weights passed on an RTX 5090. See the
+[inference guide](a2/README.md) and [exact checks and limits](a2/VALIDATION.md).
+
 ## Training Results
 
 [R3S2 A0-A3 results](experiments/round03_stage02/README.md) publish the four
