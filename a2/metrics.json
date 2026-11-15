@@ -1,0 +1,433 @@
+{
+  "model_id": "picasso-a2-v1",
+  "status": "historical saved results; not rerun for this release",
+  "split_type": "image-row target-stratified 80/10/10, seed 20260421; not source-held-out",
+  "checkpoint_source": "ema",
+  "epoch": 40,
+  "test": {
+    "balanced_accuracy": 0.8337540791595984,
+    "f1_score": {
+      "macro": 0.7898762050152817,
+      "weighted": 0.9402887482063338
+    },
+    "num_classes": 20,
+    "num_samples": 413764,
+    "precision": {
+      "macro": 0.7578820871883414,
+      "weighted": 0.9409985844289666
+    },
+    "recall": {
+      "macro": 0.8337540791595984,
+      "weighted": 0.9399271082066105
+    },
+    "topk_accuracy": {
+      "top1_accuracy": 0.9399271082066105,
+      "top2_accuracy": 0.9883605146895331,
+      "top3_accuracy": 0.9932618594174457,
+      "top4_accuracy": 0.9943711874401833,
+      "top5_accuracy": 0.9948158853839387
+    }
+  },
+  "class_support": [
+    {
+      "class_index": "0",
+      "target_id": "11",
+      "target_display_name": "Ciliophora",
+      "train_count": "22134",
+      "val_count": "2766",
+      "test_count": "2768"
+    },
+    {
+      "class_index": "1",
+      "target_id": "51",
+      "target_display_name": "Mollusca",
+      "train_count": "1176",
+      "val_count": "147",
+      "test_count": "148"
+    },
+    {
+      "class_index": "2",
+      "target_id": "558",
+      "target_display_name": "Porifera",
+      "train_count": "284",
+      "val_count": "35",
+      "test_count": "37"
+    },
+    {
+      "class_index": "3",
+      "target_id": "799",
+      "target_display_name": "Nematoda",
+      "train_count": "102",
+      "val_count": "12",
+      "test_count": "14"
+    },
+    {
+      "class_index": "4",
+      "target_id": "801",
+      "target_display_name": "Chlorophyta",
+      "train_count": "16705",
+      "val_count": "2088",
+      "test_count": "2089"
+    },
+    {
+      "class_index": "5",
+      "target_id": "882",
+      "target_display_name": "Annelida",
+      "train_count": "465",
+      "val_count": "58",
+      "test_count": "59"
+    },
+    {
+      "class_index": "6",
+      "target_id": "1065",
+      "target_display_name": "Arthropoda",
+      "train_count": "24068",
+      "val_count": "3008",
+      "test_count": "3010"
+    },
+    {
+      "class_index": "7",
+      "target_id": "1267",
+      "target_display_name": "Cnidaria",
+      "train_count": "199",
+      "val_count": "24",
+      "test_count": "26"
+    },
+    {
+      "class_index": "8",
+      "target_id": "1806",
+      "target_display_name": "Echinodermata",
+      "train_count": "16",
+      "val_count": "2",
+      "test_count": "2"
+    },
+    {
+      "class_index": "9",
+      "target_id": "1821",
+      "target_display_name": "Chordata",
+      "train_count": "1789",
+      "val_count": "223",
+      "test_count": "225"
+    },
+    {
+      "class_index": "10",
+      "target_id": "14260",
+      "target_display_name": "Rotifera",
+      "train_count": "16481",
+      "val_count": "2060",
+      "test_count": "2061"
+    },
+    {
+      "class_index": "11",
+      "target_id": "146537",
+      "target_display_name": "Cyanobacteria",
+      "train_count": "78119",
+      "val_count": "9764",
+      "test_count": "9766"
+    },
+    {
+      "class_index": "12",
+      "target_id": "345465",
+      "target_display_name": "Ochrophyta",
+      "train_count": "1008",
+      "val_count": "126",
+      "test_count": "126"
+    },
+    {
+      "class_index": "13",
+      "target_id": "368664",
+      "target_display_name": "Charophyta",
+      "train_count": "1190",
+      "val_count": "148",
+      "test_count": "150"
+    },
+    {
+      "class_index": "14",
+      "target_id": "369190",
+      "target_display_name": "Haptophyta",
+      "train_count": "2020",
+      "val_count": "252",
+      "test_count": "254"
+    },
+    {
+      "class_index": "15",
+      "target_id": "370437",
+      "target_display_name": "Heterokontophyta",
+      "train_count": "972216",
+      "val_count": "121527",
+      "test_count": "121528"
+    },
+    {
+      "class_index": "16",
+      "target_id": "450030",
+      "target_display_name": "Myzozoa",
+      "train_count": "59144",
+      "val_count": "7393",
+      "test_count": "7393"
+    },
+    {
+      "class_index": "17",
+      "target_id": "582420",
+      "target_display_name": "Rhizaria",
+      "train_count": "22325",
+      "val_count": "2790",
+      "test_count": "2792"
+    },
+    {
+      "class_index": "18",
+      "target_id": "ntc_028",
+      "target_display_name": "egg/cyst",
+      "train_count": "25438",
+      "val_count": "3179",
+      "test_count": "3181"
+    },
+    {
+      "class_index": "19",
+      "target_id": "ntc_082",
+      "target_display_name": "detritus",
+      "train_count": "2065071",
+      "val_count": "258133",
+      "test_count": "258135"
+    }
+  ],
+  "dataset_split_counts": {
+    "life_watch": {
+      "train": 261733,
+      "test": 32595,
+      "val": 32373
+    },
+    "life_watch_2026_image_library": {
+      "train": 1214986,
+      "test": 151768,
+      "val": 152174
+    },
+    "flowcam_net": {
+      "train": 240761,
+      "test": 30122,
+      "val": 30098
+    },
+    "tara_pacific_deck": {
+      "train": 1258776,
+      "test": 157651,
+      "val": 157490
+    },
+    "tara_pacific_bongo": {
+      "train": 284225,
+      "test": 35455,
+      "val": 35410
+    },
+    "ifremer_srn": {
+      "train": 3735,
+      "val": 449,
+      "test": 438
+    },
+    "ecotaxa_10750": {
+      "train": 5,
+      "val": 2,
+      "test": 1
+    },
+    "ecotaxa_11273": {
+      "train": 1
+    },
+    "ecotaxa_11716": {
+      "train": 2
+    },
+    "ecotaxa_1342": {
+      "train": 4
+    },
+    "ecotaxa_1363": {
+      "train": 1
+    },
+    "ecotaxa_13909": {
+      "train": 1246,
+      "test": 154,
+      "val": 157
+    },
+    "ecotaxa_13982": {
+      "train": 1
+    },
+    "ecotaxa_14694": {
+      "train": 1,
+      "test": 1
+    },
+    "ecotaxa_14791": {
+      "train": 1448,
+      "val": 196,
+      "test": 169
+    },
+    "ecotaxa_14823": {
+      "train": 1
+    },
+    "ecotaxa_15080": {
+      "train": 190,
+      "test": 18,
+      "val": 18
+    },
+    "ecotaxa_1534": {
+      "train": 5
+    },
+    "ecotaxa_16271": {
+      "train": 1
+    },
+    "ecotaxa_17598": {
+      "train": 41,
+      "test": 6,
+      "val": 4
+    },
+    "ecotaxa_17636": {
+      "train": 1
+    },
+    "ecotaxa_17686": {
+      "train": 1
+    },
+    "ecotaxa_17869": {
+      "train": 2
+    },
+    "ecotaxa_17886": {
+      "train": 88,
+      "test": 13,
+      "val": 5
+    },
+    "ecotaxa_17887": {
+      "test": 78,
+      "train": 528,
+      "val": 50
+    },
+    "ecotaxa_17935": {
+      "train": 2020,
+      "test": 243,
+      "val": 286
+    },
+    "ecotaxa_18222": {
+      "val": 1
+    },
+    "ecotaxa_18329": {
+      "train": 14,
+      "val": 3,
+      "test": 4
+    },
+    "ecotaxa_19557": {
+      "train": 6,
+      "test": 1
+    },
+    "ecotaxa_19751": {
+      "train": 45,
+      "test": 6,
+      "val": 3
+    },
+    "ecotaxa_19759": {
+      "train": 258,
+      "test": 34,
+      "val": 39
+    },
+    "ecotaxa_20795": {
+      "train": 54,
+      "val": 6,
+      "test": 3
+    },
+    "ecotaxa_21049": {
+      "train": 47,
+      "test": 4,
+      "val": 3
+    },
+    "ecotaxa_21146": {
+      "train": 98,
+      "val": 15,
+      "test": 9
+    },
+    "ecotaxa_211": {
+      "train": 2
+    },
+    "ecotaxa_21713": {
+      "train": 19,
+      "test": 4,
+      "val": 3
+    },
+    "ecotaxa_2186": {
+      "train": 8,
+      "test": 2
+    },
+    "ecotaxa_22067": {
+      "val": 2094,
+      "train": 16907,
+      "test": 2124
+    },
+    "ecotaxa_2278": {
+      "train": 17,
+      "test": 6,
+      "val": 3
+    },
+    "ecotaxa_253": {
+      "train": 7,
+      "val": 1
+    },
+    "ecotaxa_2556": {
+      "test": 266,
+      "train": 2185,
+      "val": 279
+    },
+    "ecotaxa_2557": {
+      "val": 1,
+      "train": 12,
+      "test": 1
+    },
+    "ecotaxa_260": {
+      "test": 13,
+      "train": 58,
+      "val": 8
+    },
+    "ecotaxa_2740": {
+      "test": 4,
+      "train": 32,
+      "val": 4
+    },
+    "ecotaxa_3097": {
+      "train": 978,
+      "val": 122,
+      "test": 129
+    },
+    "ecotaxa_3891": {
+      "train": 185,
+      "val": 32,
+      "test": 20
+    },
+    "ecotaxa_3892": {
+      "train": 420,
+      "test": 63,
+      "val": 47
+    },
+    "ecotaxa_3910": {
+      "val": 6,
+      "train": 30,
+      "test": 5
+    },
+    "ecotaxa_4063": {
+      "train": 2
+    },
+    "ecotaxa_4424": {
+      "train": 15130,
+      "test": 1903,
+      "val": 1911
+    },
+    "ecotaxa_6015": {
+      "test": 322,
+      "train": 2542,
+      "val": 319
+    },
+    "ecotaxa_7666": {
+      "train": 383,
+      "test": 48,
+      "val": 34
+    },
+    "ecotaxa_825": {
+      "train": 681,
+      "test": 79,
+      "val": 85
+    },
+    "ecotaxa_8847": {
+      "val": 4,
+      "train": 27,
+      "test": 2
+    }
+  }
+}

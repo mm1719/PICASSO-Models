@@ -1,0 +1,102 @@
+[
+  {
+    "index": 0,
+    "target_id": "11",
+    "label": "Ciliophora"
+  },
+  {
+    "index": 1,
+    "target_id": "51",
+    "label": "Mollusca"
+  },
+  {
+    "index": 2,
+    "target_id": "558",
+    "label": "Porifera"
+  },
+  {
+    "index": 3,
+    "target_id": "799",
+    "label": "Nematoda"
+  },
+  {
+    "index": 4,
+    "target_id": "801",
+    "label": "Chlorophyta"
+  },
+  {
+    "index": 5,
+    "target_id": "882",
+    "label": "Annelida"
+  },
+  {
+    "index": 6,
+    "target_id": "1065",
+    "label": "Arthropoda"
+  },
+  {
+    "index": 7,
+    "target_id": "1267",
+    "label": "Cnidaria"
+  },
+  {
+    "index": 8,
+    "target_id": "1806",
+    "label": "Echinodermata"
+  },
+  {
+    "index": 9,
+    "target_id": "1821",
+    "label": "Chordata"
+  },
+  {
+    "index": 10,
+    "target_id": "14260",
+    "label": "Rotifera"
+  },
+  {
+    "index": 11,
+    "target_id": "146537",
+    "label": "Cyanobacteria"
+  },
+  {
+    "index": 12,
+    "target_id": "345465",
+    "label": "Ochrophyta"
+  },
+  {
+    "index": 13,
+    "target_id": "368664",
+    "label": "Charophyta"
+  },
+  {
+    "index": 14,
+    "target_id": "369190",
+    "label": "Haptophyta"
+  },
+  {
+    "index": 15,
+    "target_id": "370437",
+    "label": "Heterokontophyta"
+  },
+  {
+    "index": 16,
+    "target_id": "450030",
+    "label": "Myzozoa"
+  },
+  {
+    "index": 17,
+    "target_id": "582420",
+    "label": "Rhizaria"
+  },
+  {
+    "index": 18,
+    "target_id": "ntc_028",
+    "label": "egg/cyst"
+  },
+  {
+    "index": 19,
+    "target_id": "ntc_082",
+    "label": "detritus"
+  }
+]

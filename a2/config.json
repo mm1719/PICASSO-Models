@@ -1,0 +1,29 @@
+{
+  "model_id": "picasso-a2-v1",
+  "architecture": "convnextv2_large.fcmae_ft_in22k_in1k",
+  "num_classes": 20,
+  "drop_path_rate": 0.15,
+  "checkpoint_source": "ema",
+  "input_mode": "RGB",
+  "resize_shorter_edge": 146,
+  "resize_interpolation": "bicubic",
+  "resize_antialias": true,
+  "center_crop": [
+    128,
+    128
+  ],
+  "mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "weights_file": "model.safetensors",
+  "labels_file": "labels.json",
+  "source_checkpoint_sha256": "32f4689c4894900bc2ae440bb17b553df10bd0444ad67b294652901a3b616430",
+  "weights_sha256": "0865ff896cfd9f72509a819f19388dd8c3dc0da3e6befe84ce9ffede19334394"
+}

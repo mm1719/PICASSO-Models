@@ -1,5 +1,20 @@
 # PICASSO Models
 
+Two separately versioned, noncommercial FlowCAM classifiers. **A2 and R1 are not interchangeable.**
+
+| Model | Targets | Release and documentation |
+|---|---:|---|
+| A2, EMA epoch 40 | 20 | [A2 weights](https://github.com/mm1719/PICASSO-Models/releases/tag/a2-20-target-v1) · [A2 documentation](a2/README.md) · [model card](a2/MODEL_CARD.md) |
+| R1 historical baseline, EMA epoch 27 | 23 | [Preserved R1 release](https://github.com/mm1719/PICASSO-Models/releases/tag/r1-historical-baseline-v1) · [original R1 documentation](https://github.com/mm1719/PICASSO-Models/tree/r1-historical-baseline-v1) |
+
+A2 adds source-rights uncertainty disclosures and a bounded membership-inference audit that measured a weak signal, **not proof of zero leakage**. Read its [data provenance](a2/DATA_PROVENANCE.md), [audit limitations](a2/PRIVACY_EVALUATION.md), and [CC BY-NC weight terms](a2/LICENSE.md). No original images or individual audit records are distributed. Saved model accuracies use different labels/cohorts and are not a controlled comparison.
+
+A2 files are in **`a2/`**. Top-level inference/configuration/model-card files remain the historical **R1** bundle. For R1's checksum-verified package, use the immutable R1 release/tag, not the current branch README. Both weight files are separate release assets and are not committed to Git.
+
+---
+
+## R1 historical baseline documentation
+
 A transparent, reproducible release of a **historical PICASSO R1 baseline** for FlowCAM plankton and particle image classification.
 
 > **R1, not A2.** This checkpoint has **23 mixed taxonomic/particle targets**, not 23 species. It is not the current 20-target A2 application model and is not a drop-in replacement for it.

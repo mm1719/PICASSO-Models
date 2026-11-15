@@ -1,0 +1,151 @@
+{
+  "model_id": "picasso-a2-v1",
+  "audit_date": "2026-11-15",
+  "scope": "bounded matched output-score membership inference, not image reconstruction or a privacy guarantee",
+  "weights_sha256": "0865ff896cfd9f72509a819f19388dd8c3dc0da3e6befe84ce9ffede19334394",
+  "sampling_seed": 20261115,
+  "sample_count": 6748,
+  "members": 3374,
+  "nonmembers": 3374,
+  "cohort_counts": {
+    "calibration": 2562,
+    "evaluation": 4090,
+    "rare_evaluation": 96
+  },
+  "metrics": {
+    "negative_nll": {
+      "evaluation_AUROC": 0.5171169469336028,
+      "evaluation_AUROC_CI95": [
+        0.5071257883441634,
+        0.5265286912440743
+      ],
+      "calibrated_low_FPR_operating_point": {
+        "threshold": -0.05704860837367143,
+        "prediction_rule": "score_greater_or_equal_threshold",
+        "TP": 24,
+        "FP": 24,
+        "TN": 2021,
+        "FN": 2021,
+        "members": 2045,
+        "nonmembers": 2045,
+        "TPR": 0.0117359413202934,
+        "FPR": 0.0117359413202934,
+        "balanced_accuracy": 0.49999999999999994
+      }
+    },
+    "max_softmax": {
+      "evaluation_AUROC": 0.5165959074850103,
+      "calibrated_low_FPR_operating_point": {
+        "threshold": 0.9445481553009448,
+        "prediction_rule": "score_greater_or_equal_threshold",
+        "TP": 24,
+        "FP": 24,
+        "TN": 2021,
+        "FN": 2021,
+        "members": 2045,
+        "nonmembers": 2045,
+        "TPR": 0.0117359413202934,
+        "FPR": 0.0117359413202934,
+        "balanced_accuracy": 0.49999999999999994
+      }
+    },
+    "negative_entropy": {
+      "evaluation_AUROC": 0.5158225979041253,
+      "calibrated_low_FPR_operating_point": {
+        "threshold": -0.3691683073607548,
+        "prediction_rule": "score_greater_or_equal_threshold",
+        "TP": 26,
+        "FP": 24,
+        "TN": 2021,
+        "FN": 2019,
+        "members": 2045,
+        "nonmembers": 2045,
+        "TPR": 0.012713936430317848,
+        "FPR": 0.0117359413202934,
+        "balanced_accuracy": 0.5004889975550123
+      }
+    },
+    "negative_modified_entropy": {
+      "evaluation_AUROC": 0.517183900144069,
+      "calibrated_low_FPR_operating_point": {
+        "threshold": -0.003383400216435573,
+        "prediction_rule": "score_greater_or_equal_threshold",
+        "TP": 24,
+        "FP": 23,
+        "TN": 2022,
+        "FN": 2021,
+        "members": 2045,
+        "nonmembers": 2045,
+        "TPR": 0.0117359413202934,
+        "FPR": 0.011246943765281174,
+        "balanced_accuracy": 0.5002444987775061
+      }
+    },
+    "correctness": {
+      "evaluation_AUROC": 0.5097799511002445,
+      "calibrated_low_FPR_operating_point": {
+        "threshold": null,
+        "prediction_rule": "predict_none",
+        "TP": 0,
+        "FP": 0,
+        "TN": 2045,
+        "FN": 2045,
+        "members": 2045,
+        "nonmembers": 2045,
+        "TPR": 0.0,
+        "FPR": 0.0,
+        "balanced_accuracy": 0.5
+      }
+    },
+    "regularized_logistic_attack": {
+      "evaluation_AUROC": 0.51632116020349,
+      "evaluation_AUROC_CI95": [
+        0.5022455150315935,
+        0.5299629904173219
+      ],
+      "calibrated_low_FPR_operating_point": {
+        "threshold": 0.239173777685538,
+        "prediction_rule": "score_greater_or_equal_threshold",
+        "TP": 33,
+        "FP": 17,
+        "TN": 2028,
+        "FN": 2012,
+        "members": 2045,
+        "nonmembers": 2045,
+        "TPR": 0.01613691931540342,
+        "FPR": 0.008312958435207823,
+        "balanced_accuracy": 0.5039119804400979
+      }
+    }
+  },
+  "within_stratum_negative_nll": {
+    "pair_count_weighted_AUROC": 0.5070713980875061,
+    "CI95": [
+      0.4888387650450609,
+      0.5247971215566317
+    ]
+  },
+  "coverage": {
+    "total_strata": 170,
+    "matched_sampled_strata": 121,
+    "excluded_unmatchable_strata": 49,
+    "eco_projects_in_split": 48,
+    "eco_projects_sampled": 33,
+    "eco_projects_calibrated_eval": 24,
+    "primary_eval_strata": 93,
+    "primary_eval_targets": 19,
+    "sampled_targets": 20
+  },
+  "full_manifest_identical_path_cross_split_overlap": 0,
+  "sampled_exact_rgb_or_preprocessed_duplicates": 0,
+  "sample_images_changed_during_audit": 0,
+  "limits": [
+    "Not population-frequency weighted",
+    "Conditional image-level bootstrap can be too narrow for correlated samples",
+    "No complete training-content deduplication",
+    "No image reconstruction, white-box gradients, LiRA, shadow models, or differential privacy guarantee",
+    "Historical membership inferred from saved splits and logs, not per-image ingestion records; upstream pretraining overlap unknown",
+    "Historical test was previously inspected, not a new external blind set",
+    "No per-image paths, labels, logits, or original images published"
+  ]
+}
