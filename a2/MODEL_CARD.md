@@ -2,6 +2,11 @@
 
 Architecture: **ConvNeXt V2-L**. Internal experiment trace: **R3S2-A2** (round 03, stage 02); EMA epoch 40. The public display name does not change the checkpoint, class map, or experiment records.
 
+`A2` identifies the second augmentation-ablation variant after baseline A0 in
+Round 3, Stage 2. It keeps the baseline architecture, 20-target labels and crop
+settings, and reduces RandAugment magnitude from 9 to 4 (`ra_m4`). It is not an
+architecture generation, release version or performance rank.
+
 **Release: `a2-20-target-v1`. A2's 20-target EMA epoch-40 classifier, the only downloadable PICASSO-Models checkpoint. Noncommercial, tensor-only safetensors package. Source-rights uncertainty is disclosed below; this is not a claim of universal rights clearance.**
 
 ## Model identity

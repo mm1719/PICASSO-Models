@@ -5,6 +5,13 @@ this repository. It is a noncommercial ConvNeXt V2-L classifier for FlowCAM
 plankton and particle image crops, with 20 mixed taxonomic/particle targets,
 not 20 species.
 
+**What A2 means:** `R3S2` identifies Round 3, Stage 2, and `A2` identifies its
+second augmentation-ablation variant after the A0 baseline. It keeps A0's
+ConvNeXt V2-L architecture, 20-target label space and crop settings, while
+reducing RandAugment magnitude from 9 to 4 (`ra_m4`). This is an experiment
+identifier, not a second-generation architecture, release version or performance
+rank. The public model name remains **PICASSO 20-Class Plankton Classifier**.
+
 ## Download A2
 
 From the [A2 release](https://github.com/mm1719/PICASSO-Models/releases/tag/a2-20-target-v1),
